@@ -187,7 +187,7 @@ X11_GetNetWMState(_THIS, Window xwindow)
     Display *display = videodata->display;
     Atom _NET_WM_STATE = videodata->_NET_WM_STATE;
     Atom _NET_WM_STATE_HIDDEN = videodata->_NET_WM_STATE_HIDDEN;
-    Atom _NET_WM_STATE_FOCUSED = videodata->_NET_WM_STATE_FOCUSED;
+    ;Atom _NET_WM_STATE_FOCUSED = videodata->_NET_WM_STATE_FOCUSED;
     Atom _NET_WM_STATE_MAXIMIZED_VERT = videodata->_NET_WM_STATE_MAXIMIZED_VERT;
     Atom _NET_WM_STATE_MAXIMIZED_HORZ = videodata->_NET_WM_STATE_MAXIMIZED_HORZ;
     Atom _NET_WM_STATE_FULLSCREEN = videodata->_NET_WM_STATE_FULLSCREEN;
@@ -384,8 +384,12 @@ X11_CreateWindow(_THIS, SDL_Window * window)
 #if SDL_VIDEO_OPENGL_GLX || SDL_VIDEO_OPENGL_EGL
     if ((window->flags & SDL_WINDOW_OPENGL) &&
         !SDL_getenv("SDL_VIDEO_X11_VISUALID")) {
-        XVisualInfo *vinfo = NULL;
-
+        /* XVisualInfo *vinfo = NULL; */
+        XVisualInfo *vinfo;
+        XVisualInfo viinfo;
+        XMatchVisualInfo(display, DefaultScreen(display), 32, TrueColor, &viinfo);
+        vinfo=&viinfo;
+/*
 #if SDL_VIDEO_OPENGL_EGL
         if (_this->gl_config.profile_mask == SDL_GL_CONTEXT_PROFILE_ES 
 #if SDL_VIDEO_OPENGL_GLX            
@@ -400,7 +404,8 @@ X11_CreateWindow(_THIS, SDL_Window * window)
             vinfo = X11_GL_GetVisual(_this, display, screen);
 #endif
         }
-
+*/
+        
         if (!vinfo) {
             return -1;
         }
