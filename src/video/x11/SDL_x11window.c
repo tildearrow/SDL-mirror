@@ -385,13 +385,11 @@ X11_CreateWindow(_THIS, SDL_Window * window)
     if ((window->flags & SDL_WINDOW_OPENGL) &&
         !SDL_getenv("SDL_VIDEO_X11_VISUALID")) {
         /* XVisualInfo *vinfo = NULL; */
-         printf("for now, create vinfo\n");
         XVisualInfo *vinfo;
-printf("for now, create viinfo\n");
         XVisualInfo viinfo;
-printf("XMatchWhatever\n");
+        printf("XMatchWhatever\n");
         XMatchVisualInfo(display, DefaultScreen(display), 32, TrueColor, &viinfo);
-printf("pointerrrrrrrrr\n");
+        printf("pointerrrrrrrrr\n");
         vinfo=&viinfo;
 /*
 #if SDL_VIDEO_OPENGL_EGL
