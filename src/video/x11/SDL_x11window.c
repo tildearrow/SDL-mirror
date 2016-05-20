@@ -187,7 +187,7 @@ X11_GetNetWMState(_THIS, Window xwindow)
     Display *display = videodata->display;
     Atom _NET_WM_STATE = videodata->_NET_WM_STATE;
     Atom _NET_WM_STATE_HIDDEN = videodata->_NET_WM_STATE_HIDDEN;
-    ;Atom _NET_WM_STATE_FOCUSED = videodata->_NET_WM_STATE_FOCUSED;
+    Atom _NET_WM_STATE_FOCUSED = videodata->_NET_WM_STATE_FOCUSED;
     Atom _NET_WM_STATE_MAXIMIZED_VERT = videodata->_NET_WM_STATE_MAXIMIZED_VERT;
     Atom _NET_WM_STATE_MAXIMIZED_HORZ = videodata->_NET_WM_STATE_MAXIMIZED_HORZ;
     Atom _NET_WM_STATE_FULLSCREEN = videodata->_NET_WM_STATE_FULLSCREEN;
