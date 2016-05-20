@@ -386,11 +386,7 @@ X11_CreateWindow(_THIS, SDL_Window * window)
         !SDL_getenv("SDL_VIDEO_X11_VISUALID")) {
         /* XVisualInfo *vinfo = NULL; */
         XVisualInfo *vinfo;
-        XVisualInfo viinfo;
-        printf("XMatchWhatever\n");
-        XMatchVisualInfo(display, DefaultScreen(display), 32, TrueColor, &viinfo);
-        printf("pointerrrrrrrrr\n");
-        vinfo=&viinfo;
+        XMatchVisualInfo(display, DefaultScreen(display), 32, TrueColor, &vinfo);
 /*
 #if SDL_VIDEO_OPENGL_EGL
         if (_this->gl_config.profile_mask == SDL_GL_CONTEXT_PROFILE_ES 
@@ -412,10 +408,10 @@ X11_CreateWindow(_THIS, SDL_Window * window)
             printf("this snh.\n");
             return -1;
         }
-        visual = vinfo->visual;
-        depth = vinfo->depth;
-        printf("free\n");
-        X11_XFree(vinfo);
+        visual = vinfo.visual;
+        depth = vinfo.depth;
+        /* is freed by code, i guess */
+        /*X11_XFree(vinfo);*/
     } else
 #endif
     {
