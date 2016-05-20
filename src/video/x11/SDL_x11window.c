@@ -404,7 +404,7 @@ X11_CreateWindow(_THIS, SDL_Window * window)
         }
 */
         
-        if (!vinfo) {
+        if (!&vinfo) {
             printf("this snh.\n");
             return -1;
         }
