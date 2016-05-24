@@ -211,7 +211,7 @@ int Wayland_CreateWindow(_THIS, SDL_Window *window)
 
     region = wl_compositor_create_region(c->compositor);
     wl_region_add(region, 0, 0, window->w, window->h);
-    //wl_surface_set_opaque_region(data->surface, region);
+    wl_surface_set_opaque_region(data->surface, region);
     wl_region_destroy(region);
 
     WAYLAND_wl_display_flush(c->display);
